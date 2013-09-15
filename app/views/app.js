@@ -30,16 +30,18 @@ app.AppView = Backbone.View.extend({
     var remaining = app.Todos.remaining().length;
 
     if ( !app.Todos.length ) {
-      this.$wrapper.addClass('js-app--no-tasks');
+      this.$el.addClass('js-app--no-tasks');
       return;
     }
 
     this.$el.removeClass('js-app--no-tasks');
-      
+    
     this.$stats.html(this.statsTemplate({
       completed: completed,
       remaining: remaining
     }));
+
+    this.$todoCount = this.$('.js-stats-tasks-left');
 
     this.$stateTogglers
       .removeClass('filters-item--active')
@@ -49,17 +51,17 @@ app.AppView = Backbone.View.extend({
     return this;    
   },
 
-  addOpen: function( todo ) {
+  addOne: function( todo ) {
     var view = new app.TodoView({ model: todo });
     this.$tasks.append( view.render().el );
   },
 
   addAll: function() {
     this.$tasks.html('');
-    app.Todos.each(this.addOpen, this);
+    app.Todos.each(this.addOne, this);
   },
 
-  filterOne: function(todo) {
+  filterOne: function( todo ) {
     todo.trigger('visible');
   },
 

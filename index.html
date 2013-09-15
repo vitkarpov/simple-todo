@@ -22,7 +22,7 @@
   </div>
   
   <script type="text/template" id="stats-template">
-    <div class="stats">Осталось выполнить: <strong class="stats-tasks-left js-stats-tasks-left">1</strong></div>
+    <div class="stats">Осталось выполнить: <strong class="stats-tasks-left js-stats-tasks-left"><%= remaining %></strong></div>
     <div class="filters">
       <a href="#/" class="filters-item filters-item--active js-filters-item">Все</a>
       <a href="#/active" class="filters-item js-filters-item">Невыполненные</a>
@@ -33,12 +33,13 @@
     <% } %>  
   </script>
   <script type="text/template" id="todo-item-template">
-    <li class="tasks-item">
+    <div class="js-tasks-edit-trigger">
+      <input type="text" class="tasks-edit js-tasks-edit">
       <label class="tasks-caption">
-        <input type="checkbox" class="tasks-check" <%= completed ? 'checked' : '' %>> <%= title %>
+        <input type="checkbox" class="tasks-check js-tasks-check" <%= completed ? 'checked' : '' %>> <%= title %>
       </label>
-      <button class="tasks-destroy">x</button>
-    </li>
+    </div>
+    <button class="tasks-destroy js-tasks-destroy">x</button>
   </script>
 
   <script src="app/libs/jquery.js"></script>
