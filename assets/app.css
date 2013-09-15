@@ -1,0 +1,165 @@
+/**
+ *  CSS written with love by Vit Karpov (http://github.com/vitkarpov/) in 2013.
+ *
+ *  It uses BEM method 
+ *  but not uses assemblers tools 
+ *  and preprocessors.
+ */
+
+/* global */
+
+html, body
+{
+  height: 100%;
+}
+a {
+  color: #2266ff;
+}
+
+/* page START */
+
+.page 
+{
+  margin: 0;
+  padding: 0;
+  min-width: 1000px;
+
+  font: normal 14px/18px PT Sans, Arial, sans-serif;
+  background: white;
+}
+
+.page-container 
+{
+  min-height: 100%;
+  height: auto;
+}
+
+.page-wrapper 
+{
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.page-content
+{
+  padding-bottom: 78px;
+}
+
+.page-footer
+{
+  margin-top: -66px;
+}
+.page-footer:before,
+.page-footer:after 
+{
+  content: "";
+  display: table;
+  width: 100%;
+  visibility: hidden;
+}
+
+.page-footer-text
+{
+  margin: 10px 0;
+}
+
+.page-content:before,
+.page-content:after
+{
+  content: "";
+  display: table;
+  width: 100%;
+  visibility: hidden;
+}
+
+.page-caption 
+{
+  font-size: 24px;
+  line-height: 28px;
+  margin: 28px 0;
+}
+
+.page-controls
+{
+  margin: 20px 0;
+}
+
+/* page END */
+
+/* tasks START */
+
+.tasks 
+{
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  margin-left: -15px;
+  padding: 15px;
+  border: 1px dashed lightgray;
+}
+
+.tasks-item
+{
+  margin: 10px 0;
+  padding-left: 25px;
+  min-height: 14px;
+}
+
+.tasks-check 
+{
+  border: 0;
+  width: 12px;
+  height: 12px;
+
+  position: absolute;
+  margin-left: -25px;
+}
+
+/* tasks END */
+
+/* stats START */
+
+.stats 
+{
+  margin: 5px 0;
+}
+
+.stats-tasks-left
+{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* stats END */
+
+/* filters START */
+
+.filters 
+{
+  margin: 10px 0;
+  margin-left: -6px;
+}
+
+.filters-item
+{
+  display: inline-block;
+  padding: 0 2px;
+  margin: 0 4px;
+}
+
+.filters-item--active
+{
+  background: lightyellow;
+  color: black;
+  text-decoration: none;
+}
+
+/* filters END */
+
+/* Dynamic Behavior */
+
+.js-app--no-tasks .js-tasks,
+.js-app--no-tasks .js-stats
+{
+  display: none;
+}
