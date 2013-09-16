@@ -1,0 +1,17 @@
+{
+  "name": "simple-todo",
+  "author": "Vit Karpov",
+  "email": "viktor.s.karpov@gmail.com",
+  "description": "Simple educational app from Addy Osmani`s book",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vitkarpov/simple-todo.git"
+  },
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-contrib-concat": "0.3.x",
+    "grunt-contrib-uglify": "0.2.x",
+    "grunt-contrib-handlebars": "0.5.x"
+  },
+  "engine": "node >= 0.4.1"
+}

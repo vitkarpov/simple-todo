@@ -104,7 +104,7 @@ a { color: #2266ff; }
 .tasks-check 
 {
   border: 0;
-  margin: 2px 0 0 0;
+  margin: 3px 0 0 0;
 
   position: absolute;
   margin-left: -25px;
@@ -140,10 +140,12 @@ a { color: #2266ff; }
 
   cursor: pointer;
 }
-.tasks-item:hover .tasks-destroy
-{
-  opacity: 1;
-}
+.tasks-item:hover .tasks-destroy { opacity: 1; }
+
+.js-tasks-item--completed .tasks-caption { color: lightgray; text-decoration: line-through; }
+.js-tasks-item--hidden { display: none; }
+
+.tasks-caption { font-size: 16px; }
 
 .tasks-edit
 {
@@ -160,10 +162,11 @@ a { color: #2266ff; }
 
   display: none;
 }
-.js-tasks-item--editing .tasks-edit
+.tasks-edit:focus
 {
-  display: block;
+  outline: 1px solid lightyellow;
 }
+.js-tasks-item--editing .tasks-edit { display: block; }
 
 /* tasks END */
 

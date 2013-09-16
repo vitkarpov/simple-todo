@@ -9,7 +9,7 @@ app.TodoView = Backbone.View.extend({
   // but problem is conceptual
   className: 'tasks-item js-tasks-item',
   
-  template: _.template($('#todo-item-template').html()),
+  template: app.templates['todoItem'],
   
   events: {
     'click .js-tasks-check': 'toggleCompleted',
@@ -29,7 +29,7 @@ app.TodoView = Backbone.View.extend({
     this.$el
       .html( this.template( this.model.toJSON() ) )
       .toggleClass( 'js-tasks-item--completed', this.model.get('completed') );
-    
+
     this.toggleVisible();
     this.$input = this.$('.js-tasks-edit');
     return this;
@@ -51,8 +51,6 @@ app.TodoView = Backbone.View.extend({
 
     if (value) {
       this.model.save({ title: value });
-    } else {
-      this.clear();
     }
 
     this.$el.removeClass('js-tasks-item--editing');

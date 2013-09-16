@@ -3,7 +3,7 @@ var app = app || {};
 app.AppView = Backbone.View.extend({
   el: '.js-app',
   
-  statsTemplate: _.template($('#stats-template').html()),
+  statsTemplate: app.templates['stats'],
 
   events: {
     'keypress .js-new-task': 'createOnEnter',
@@ -41,7 +41,23 @@ app.AppView = Backbone.View.extend({
     this.$stats.html(this.statsTemplate({
       completed: completed,
       remaining: remaining,
-      filter: app.TodoFilter || ''
+      filters: [
+        {
+          title: "Все",
+          action: "",
+          active: (app.TodoFilter || '') === ''
+        },
+        {
+          title: "Невыполненные",
+          action: "active",
+          active: (app.TodoFilter || '') === 'active'
+        },
+        {
+          title: "Выполненные",
+          action: "completed",
+          active: (app.TodoFilter || '') === 'completed'
+        }
+      ]
     }));
 
     return this;    
