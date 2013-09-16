@@ -31,7 +31,10 @@ app.TodoView = Backbone.View.extend({
       .toggleClass( 'js-tasks-item--completed', this.model.get('completed') );
 
     this.toggleVisible();
-    this.$input = this.$('.js-tasks-edit');
+
+    this.$todoEditField = this.$('.js-tasks-edit');
+    this.$caption = this.$('.tasks-caption');
+
     return this;
   },
 
@@ -40,17 +43,25 @@ app.TodoView = Backbone.View.extend({
   },
 
   edit: function() {
+    var captionLineHeight, captionHeight,
+        rows;
+
+    captionLineHeight = +(this.$caption.css('line-height').replace('px', ''));
+    captionHeight = +this.$caption.height();
+    rows = Math.ceil(captionHeight / captionLineHeight);
+
     this.$el.addClass('js-tasks-item--editing');
-    this.$input
+    this.$todoEditField
+            .attr('rows', rows)
             .val( this.model.get('title') )
             .focus();
   },
 
   close: function() {
-    var value = this.$input.val().trim();
+    var value = this.$todoEditField.val();
 
     if (value) {
-      this.model.save({ title: value });
+      this.model.save({ title: value.trim() });
     }
 
     this.$el.removeClass('js-tasks-item--editing');
