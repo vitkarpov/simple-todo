@@ -1,7 +1,6 @@
-<div class="js-tasks-edit-trigger">
-  <input type="text" class="tasks-edit js-tasks-edit">
-    <label class="tasks-caption">
-      <input type="checkbox" class="tasks-check js-tasks-check" {{#if completed}} checked {{/if}}> {{ title }}
-    </label>
-  </div>
-<button class="tasks-destroy js-tasks-destroy">x</button>
+<input type="text" class="tasks-edit js-tasks-edit">
+<a href="#delete/{{ order }}" class="tasks-destroy">Удалить</button>
+<a href="#edit/{{ order }}" class="tasks-item-edit">Редактировать</a>
+<label class="tasks-caption">
+  <input type="checkbox" class="tasks-check js-tasks-check" {{#if completed}} checked {{/if}}> {{ title }}
+</label>

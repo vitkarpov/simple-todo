@@ -23,6 +23,8 @@ app.AppView = Backbone.View.extend({
     this.listenTo(app.Todos, 'change:completed', this.filterOne);
     this.listenTo(app.Todos, 'filter', this.filterAll);
     this.listenTo(app.Todos, 'all', this.render);
+    this.listenTo(app.Todos, 'edit', this.editTodo);
+    this.listenTo(app.Todos, 'delete', this.deleteTodo);
 
     app.Todos.fetch({ reset: true });
   },
@@ -37,27 +39,17 @@ app.AppView = Backbone.View.extend({
     }
 
     this.$el.removeClass('js-app--no-tasks');
-    
+
     this.$stats.html(this.statsTemplate({
       completed: completed,
       remaining: remaining,
-      filters: [
-        {
-          title: "Все",
-          action: "",
-          active: (app.TodoFilter || '') === ''
-        },
-        {
-          title: "Невыполненные",
-          action: "active",
-          active: (app.TodoFilter || '') === 'active'
-        },
-        {
-          title: "Выполненные",
-          action: "completed",
-          active: (app.TodoFilter || '') === 'completed'
-        }
-      ]
+      filters: _.map(app.settings.filters, function(filter) {
+        var defaultActive = (app.TodoFilter === undefined) && (filter.action === 'all');
+
+        return _.extend(filter, {
+          active: (app.TodoFilter === filter.action) || defaultActive
+        });
+      })
     }));
 
     return this;    
@@ -73,7 +65,7 @@ app.AppView = Backbone.View.extend({
     app.Todos.each(this.addOne, this);
   },
 
-  filterOne: function( todo ) {
+  filterOne: function(todo) {
     todo.trigger('visible');
   },
 
@@ -105,5 +97,24 @@ app.AppView = Backbone.View.extend({
 
   changeInputWrapperState: function() {
     this.$inputWrapper.toggleClass('new-task-wrapper--focused');
+  },
+
+  // TODO:
+  // maybe it could be merged into factory?
+
+  editTodo: function(todoID) {
+    var todo = app.Todos.findWhere({ order: +todoID });
+    
+    if (todo) {
+      todo.trigger('editing');
+    }
+  },
+
+  deleteTodo: function(todoID) {
+    var todo = app.Todos.findWhere({ order: +todoID });
+    
+    if (todo) {
+      todo.trigger('deleting');
+    }
   }
 });

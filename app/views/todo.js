@@ -13,8 +13,6 @@ app.TodoView = Backbone.View.extend({
   
   events: {
     'click .js-tasks-check': 'toggleCompleted',
-    'dblclick .js-tasks-edit-trigger': 'edit',
-    'click .js-tasks-destroy': 'clear',
     'keypress .js-tasks-edit': 'updateOnEnter',
     'blur .js-tasks-edit': 'close'
   },
@@ -23,6 +21,8 @@ app.TodoView = Backbone.View.extend({
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model, 'destroy', this.remove);
     this.listenTo(this.model, 'visible', this.toggleVisible);
+    this.listenTo(this.model, 'editing', this.edit);
+    this.listenTo(this.model, 'deleting', this.clear);
   },
 
   render: function() {
@@ -54,6 +54,7 @@ app.TodoView = Backbone.View.extend({
     }
 
     this.$el.removeClass('js-tasks-item--editing');
+    app.TodoRouter.navigate('/', { trigger: false });
   },
 
   updateOnEnter: function(e) {

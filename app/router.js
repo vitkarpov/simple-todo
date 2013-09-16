@@ -2,12 +2,22 @@ var app = app || {}
 
 app.TodoRouter = new (Backbone.Router.extend({
   routes: {
-    '*filter': 'setFilter'
+    'filter/:action': 'setFilter',
+    'edit/:id': 'editTodo',
+    'delete/:id': 'deleteTodo'
   },
 
-  setFilter: function(param) {
-    app.TodoFilter = param || '';
+  setFilter: function(action) {
+    app.TodoFilter = action || '';
     app.Todos.trigger('filter');
+  },
+
+  editTodo: function(id) {
+    app.Todos.trigger('edit', id);
+  },
+
+  deleteTodo: function(id) {
+    app.Todos.trigger('delete', id);
   }
 }));
 

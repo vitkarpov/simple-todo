@@ -25,6 +25,10 @@ app.Todos = new (Backbone.Collection.extend({
 
   comparator: function(todo) {
     return todo.get('order');
+  },
+
+  findWhere: function(attributes) {
+    return this.where( attributes )[0];
   }
 
 }));

@@ -5,8 +5,21 @@ var app = app || {};
  * @type {Object}
  */
 app.settings = {
-  debug: true,
-  ENTER_KEY: 13
+  ENTER_KEY: 13,
+  filters: [
+    {
+      title: "Все",
+      action: "all"
+    },
+    {
+      title: "Невыполненные",
+      action: "active"
+    },
+    {
+      title: "Выполненные",
+      action: "completed"
+    }
+  ]
 }
 
 new app.AppView();

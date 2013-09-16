@@ -95,8 +95,7 @@ a { color: #2266ff; }
 .tasks-item
 {
   position: relative;
-  margin: 10px 0;
-  padding-left: 25px;
+  padding: 5px 0 5px 25px;
   min-height: 20px;
   overflow: hidden;
 }
@@ -110,26 +109,16 @@ a { color: #2266ff; }
   margin-left: -25px;
 }
 
+.tasks-item-edit,
 .tasks-destroy
 {
-  border: 0;
-  padding: 0 0 2px 0;
+  float: right;
+  margin-left: 10px;
 
-  position: absolute;
-  right: 0;
-  top: 50%;
-  margin-top: -6px;
-  width: 16px;
-  height: 16px;
+  text-decoration: none;
+  border-bottom: 1px dotted #2266ff;
+  font-size: 12px;
 
-  background: black;
-
-  text-align: center;
-  line-height: 14px;
-  font-size: 11px;
-  color: white;
-
-  border-radius: 16px;
   opacity: 0;
 
   -webkit-transition: opacity 0.3s ease;
@@ -137,15 +126,20 @@ a { color: #2266ff; }
   -ms-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
-
-  cursor: pointer;
 }
-.tasks-item:hover .tasks-destroy { opacity: 1; }
+.tasks-item:hover .tasks-item-edit,
+.tasks-item:hover .tasks-destroy {
+  opacity: 1;
+}
 
 .js-tasks-item--completed .tasks-caption { color: lightgray; text-decoration: line-through; }
 .js-tasks-item--hidden { display: none; }
 
-.tasks-caption { font-size: 16px; }
+.tasks-caption { 
+  display: block;
+  margin-right: 20%;
+  font-size: 16px; 
+}
 
 .tasks-edit
 {
@@ -215,7 +209,7 @@ a { color: #2266ff; }
 {
   width: 100%;
   height: 28px;
-  padding: 5px 10px;
+  padding: 5px 35px 5px 10px;
   border: 0;
 
   line-height: 28px;
@@ -230,7 +224,7 @@ a { color: #2266ff; }
 .new-task-wrapper
 {
   position: relative;
-  padding-right: 20px;
+  padding-right: 45px;
 }
 .new-task-wrapper:after
 {

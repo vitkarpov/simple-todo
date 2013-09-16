@@ -1,7 +1,7 @@
 <div class="stats">Осталось выполнить: <strong class="stats-tasks-left js-stats-tasks-left">{{ remaining }}</strong></div>
 <div class="filters">
   {{#each filters}}
-    <a href="#/{{ action }}" class="filters-item {{#if active}}filters-item--active{{/if}} js-filters-item">{{ title }}</a>
+    <a href="#filter/{{ action }}" class="filters-item {{#if active}}filters-item--active{{/if}} js-filters-item">{{ title }}</a>
   {{/each}}
 </div>
 {{#if completed}}
