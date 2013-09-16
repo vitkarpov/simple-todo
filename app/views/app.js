@@ -16,7 +16,6 @@ app.AppView = Backbone.View.extend({
     this.$input = this.$('.js-new-task');
     this.$inputWrapper = this.$('.new-task-wrapper');
     this.$stats = this.$('.js-stats');
-    this.$stateTogglers = this.$('.js-filters-item');
     this.$tasks = this.$('.js-tasks');
 
     this.listenTo(app.Todos, 'add', this.addOne);
@@ -41,13 +40,9 @@ app.AppView = Backbone.View.extend({
     
     this.$stats.html(this.statsTemplate({
       completed: completed,
-      remaining: remaining
+      remaining: remaining,
+      filter: app.TodoFilter || ''
     }));
-
-    this.$stateTogglers
-      .removeClass('filters-item--active')
-      .filter('[href="#/' + ( app.TodoFilter || '' ) + '"]')
-      .addClass('filters-item--active');   
 
     return this;    
   },
