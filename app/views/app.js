@@ -7,11 +7,14 @@ app.AppView = Backbone.View.extend({
 
   events: {
     'keypress .js-new-task': 'createOnEnter',
-    'click .js-clear-completed': 'clearCompleted'
+    'click .js-clear-completed': 'clearCompleted',
+    'focus .js-new-task': 'changeInputWrapperState',
+    'blur .js-new-task': 'changeInputWrapperState'
   },
 
   initialize: function() {
     this.$input = this.$('.js-new-task');
+    this.$inputWrapper = this.$('.new-task-wrapper');
     this.$stats = this.$('.js-stats');
     this.$stateTogglers = this.$('.js-filters-item');
     this.$tasks = this.$('.js-tasks');
@@ -89,5 +92,9 @@ app.AppView = Backbone.View.extend({
   clearCompleted: function() {
     _.invoke(app.Todos.completed(), 'destroy');
     return false;
+  },
+
+  changeInputWrapperState: function() {
+    this.$inputWrapper.toggleClass('new-task-wrapper--focused');
   }
 });

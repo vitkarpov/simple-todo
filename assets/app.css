@@ -1,5 +1,5 @@
 /**
- *  CSS written with love by Vit Karpov (http://github.com/vitkarpov/) in 2013.
+ *  CSS written with love by Vit Karpov (http://github.com/vitkarpov/) in 2013 ;)
  *
  *  It uses BEM method 
  *  but not uses assemblers tools 
@@ -8,13 +8,8 @@
 
 /* global */
 
-html, body
-{
-  height: 100%;
-}
-a {
-  color: #2266ff;
-}
+html, body { height: 100%; }
+a { color: #2266ff; }
 
 /* page START */
 
@@ -92,8 +87,7 @@ a {
 {
   list-style: none;
   padding: 0;
-  margin: 20px 0;
-  margin-left: -15px;
+  margin: 20px -15px;
   padding: 15px;
   border: 1px dashed lightgray;
 }
@@ -155,6 +149,44 @@ a {
 }
 
 /* filters END */
+
+/* new task field START */
+
+.new-task
+{
+  width: 100%;
+  height: 28px;
+  padding: 5px 10px;
+  border: 0;
+
+  line-height: 28px;
+  font-size: 21px;
+
+  -webkit-box-shadow: inset 0 1px 4px lightgray;
+  -moz-box-shadow: inset 0 1px 4px lightgray;
+  box-shadow: inset 0 1px 4px lightgray;
+  border-radius: 4px;
+}
+
+.new-task-wrapper
+{
+  position: relative;
+  padding-right: 20px;
+}
+.new-task-wrapper:after
+{
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  background: url(./enter-sprite.png) no-repeat;
+}
+.new-task-wrapper--focused:after { background-position: -16px 0; }
+
+/* new task field END */
 
 /* Dynamic Behavior */
 
