@@ -44,8 +44,6 @@ app.AppView = Backbone.View.extend({
       remaining: remaining
     }));
 
-    this.$todoCount = this.$('.js-stats-tasks-left');
-
     this.$stateTogglers
       .removeClass('filters-item--active')
       .filter('[href="#/' + ( app.TodoFilter || '' ) + '"]')

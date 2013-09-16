@@ -41,7 +41,9 @@ app.TodoView = Backbone.View.extend({
 
   edit: function() {
     this.$el.addClass('js-tasks-item--editing');
-    this.$input.focus();
+    this.$input
+            .val( this.model.get('title') )
+            .focus();
   },
 
   close: function() {
