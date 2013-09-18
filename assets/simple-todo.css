@@ -72,8 +72,8 @@ a { color: #2266ff; }
 
 .page-caption 
 {
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 38px;
+  line-height: 32px;
   margin: 28px 0;
 }
 
@@ -264,6 +264,17 @@ a { color: #2266ff; }
 .new-task-wrapper--focused:after { background-position: -16px 0; }
 
 /* new task field END */
+
+/* about */
+.about { margin: 55px 0; }
+.about-picture { 
+  float: left; 
+  margin: -10px 20px 0 -10px;
+  padding: 10px;
+  border: 1px dashed lightgray;
+}
+.about-picture img { display: block; }
+.about-joke { text-decoration: line-through; }
 
 /* Loading Behavior */
 
