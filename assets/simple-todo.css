@@ -42,7 +42,7 @@ a { color: #2266ff; }
 
 .page-footer
 {
-  margin-top: -66px;
+  margin-top: -45px;
 }
 .page-footer:before,
 .page-footer:after 
@@ -119,10 +119,12 @@ a { color: #2266ff; }
 {
   float: right;
   margin-left: 10px;
+  margin-top: 4px;
 
   text-decoration: none;
   border-bottom: 1px dotted #2266ff;
   font-size: 12px;
+  line-height: 12px;
 
   opacity: 0;
 
@@ -159,9 +161,9 @@ a { color: #2266ff; }
   line-height: 18px;
   font-family: 'PT Sans';
 
-  -webkit-box-shadow: inset 0 1px 2px lightgray;
-  -moz-box-shadow: inset 0 1px 2px lightgray;
-  box-shadow: inset 0 1px 2px lightgray;
+  -webkit-box-shadow: inset 0 2px 3px lightgray;
+  -moz-box-shadow: inset 0 2px 3px lightgray;
+  box-shadow: inset 0 2px 3px lightgray;
 
   display: none;
   resize: none;
@@ -172,7 +174,7 @@ a { color: #2266ff; }
 }
 .tasks-edit:focus
 {
-  outline: 1px solid lightyellow;
+  outline: 1px solid yellow;
 }
 .js-tasks-item--editing .tasks-edit { display: block; }
 
@@ -229,7 +231,7 @@ a { color: #2266ff; }
   width: 100%;
   height: 28px;
   padding: 5px 35px 5px 10px;
-  border: 0;
+  border: 1px solid lightgray;
 
   line-height: 28px;
   font-size: 21px;
