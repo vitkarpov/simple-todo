@@ -45,6 +45,7 @@ a { color: #2266ff; }
 
 .page-footer
 {
+  position: relative;
   margin-top: -45px;
 }
 .page-footer:before,
