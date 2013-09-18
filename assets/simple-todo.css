@@ -82,6 +82,12 @@ a { color: #2266ff; }
   margin: 20px 0;
 }
 
+.page-share
+{
+  float: right;
+  margin-top: -5px;
+}
+
 /* page END */
 
 /* tasks START */
