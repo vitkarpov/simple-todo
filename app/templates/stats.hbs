@@ -1,9 +1,0 @@
-<div class="stats js-stats">Осталось выполнить: <strong class="stats-tasks-left js-stats-tasks-left">{{ remaining }}</strong></div>
-<div class="filters">
-  {{#each filters}}
-    <a href="#filter/{{ action }}" class="filters-item {{#if active}}filters-item--active{{/if}} js-filters-item">{{ title }}</a>
-  {{/each}}
-</div>
-{{#if completed}}
-  <button class="clear-completed js-clear-completed">Удалить выполненные ({{ completed }})</button>
-{{/if}}

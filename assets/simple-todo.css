@@ -25,19 +25,22 @@ a { color: #2266ff; }
 
 .page-container 
 {
+  position: relative;
   min-height: 100%;
   height: auto;
+  overflow: hidden;
 }
 
 .page-wrapper 
 {
-  width: 1000px;
+  width: 980px;
+  padding: 0 10px;
   margin: 0 auto;
 }
 
 .page-content
 {
-  padding-bottom: 78px;
+  padding-bottom: 45px;
 }
 
 .page-footer
